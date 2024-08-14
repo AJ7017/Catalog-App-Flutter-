@@ -40,9 +40,9 @@ class myapp extends StatelessWidget {
         brightness: Brightness.dark),
         initialRoute: '/',
         routes:{
-          '/':(context)=>Loginpage(),
-          MyRoutes.homeRoute:(context)=>HomePage(),
-          MyRoutes.loginRoute:(context)=>Loginpage(),
+            '/':(context)=>Loginpage(),
+            MyRoutes.homeRoute:(context)=>HomePage(),
+            MyRoutes.loginRoute:(context)=>Loginpage(),
         },
       );
   }
