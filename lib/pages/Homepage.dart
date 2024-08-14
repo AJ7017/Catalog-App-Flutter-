@@ -16,4 +16,10 @@ class HomePage extends StatelessWidget {
           drawer: Drawer(),
         );
   }
+
+
+  // in functions you can use optional parameters with curly braces which are used to give default values
+  // '@required' before value can be used to make a parameter in function must to be given value
+  //in flutter things are in tree like hierarchy where context is used to tell location of any component of tree
+
 }
