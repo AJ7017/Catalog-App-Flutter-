@@ -133,7 +133,7 @@ class _LoginpageState extends State<Loginpage> {
                     ),
           
           
-          
+                    //non animated button:
                     // ElevatedButton(
                     //   onPressed:() {
                     //     Navigator.pushNamed(context, MyRoutes.homeRoute);
