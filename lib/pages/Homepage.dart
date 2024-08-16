@@ -1,35 +1,54 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
+import 'dart:convert';
 import 'package:flutter_application_1/models/catalog.dart';
 import 'package:flutter_application_1/widgets/drawer.dart';
 import 'package:flutter_application_1/widgets/item_widget.dart';
 
-class HomePage extends StatelessWidget {
 
+class HomePage extends StatefulWidget {
   
+  @override
+  State<HomePage> createState() => _HomePageState();
+}
+
+class _HomePageState extends State<HomePage> {
+  
+  @override
+  void initState() {
+    super.initState();
+    loadData();
+  }
+  
+  loadData() async{
+    final catalogJson=await rootBundle.loadString("assets/files/catalog.json"); 
+    final decodedData=jsonDecode(catalogJson);
+    var productsData=decodedData["products"];
+    CatalogModel.Items=List.from(productsData).map<Item>((item)=>Item.fromMap(item)).toList();
+    setState(() {});
+  }
   
   @override
   Widget build(BuildContext context) {
-      final dummyList = List.generate(20, (index) => CatalogModel.Items[0]);
+     
     return Scaffold(
         appBar: AppBar(
           title: Text('Catalogue App'),
         ),
         body: Padding(
           padding: const EdgeInsets.all(16.0),
-          child: ListView.builder(
-            itemCount: dummyList.length,
+          child: (CatalogModel.Items !=null &&  CatalogModel.Items.isNotEmpty)? 
+          ListView.builder(
+            itemCount: CatalogModel.Items.length,
             itemBuilder: (context, index) {
-              return ItemWidget(item: dummyList[index], );
+              return ItemWidget(item: CatalogModel.Items[index], );
             },
-          ),
+          ):
+          Center(child: CircularProgressIndicator(),),
         ),
           drawer: MyDrawer(),
         );
   }
-
-  //constraints go down , sizes go up , parent sets position
-  // in functions you can use optional parameters with curly braces which are used to give default values
-  // '@required' before value can be used to make a parameter in function must to be given value
-  //in flutter things are in tree like hierarchy where context is used to tell location of any component of tree
-
+  
+ 
 }
