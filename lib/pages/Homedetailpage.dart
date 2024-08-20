@@ -15,25 +15,27 @@ class Homedetailpage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(),
-      backgroundColor: MyTheme.creamColor,
+      appBar: AppBar(
+        backgroundColor: Colors.transparent,
+      ),
+      backgroundColor: context.canvasColor,
       bottomNavigationBar: Container(
-        color: Colors.white,
+        color: context.cardColor,
         child: OverflowBar(
                 alignment: MainAxisAlignment.spaceBetween,
                 spacing: 8.0,
                 children: [
-                  "\$${catalog.price}".text.bold.xl4.red800.color(MyTheme.darkbluishColor).make(),
+                  "\$${catalog.price}".text.bold.xl4.red800.color(Theme.of(context).colorScheme.primary).make(),
                   Padding(
                     padding: EdgeInsets.zero,
                     child: ElevatedButton(
                       onPressed: (){},
                       style: ButtonStyle(
-                        backgroundColor: WidgetStatePropertyAll(MyTheme.darkbluishColor),
+                        backgroundColor: WidgetStatePropertyAll(Theme.of(context).colorScheme.primary),
                         shape: WidgetStatePropertyAll(StadiumBorder()),
                         ),
-                       child: "Buy".text.xl.white.make(),
-                       ).wh(100 , 50),
+                       child: "Add to Cart".text.xl.white.make(),
+                       ).wh(150 , 50),
                   )
                 ],
               ).p32(),
@@ -49,15 +51,17 @@ class Homedetailpage extends StatelessWidget {
               Expanded( child: VxArc(
                 height: 30.0,
                 arcType: VxArcType.convey,
+                edge: VxEdge.top,
                 child: Container(
-                  color: Colors.white,
+                  color:  context.cardColor,
                   width: context.screenWidth,
                   child: Column(
                     children: [
-                      catalog.name.text.xl4.color(MyTheme.darkbluishColor).bold.make(),
-                      catalog.desc.text.textStyle(context.captionStyle).xl.color(MyTheme.darkbluishColor).make(),
-                      8.heightBox,
-                    ],         
+                      catalog.name.text.xl4.color(context.accentColor).bold.make(),
+                      catalog.desc.text.textStyle(context.captionStyle).xl.color(context.accentColor).make(),
+                      10.heightBox,
+                      "Consetetur sit dolor lorem consetetur vero dolor sit eirmod eos. Sit amet sea clita et. Ipsum et duo et tempor takimata ut takimata. Kasd elitr diam duo accusam sit consetetur eirmod dolore, invidunt ut eos invidunt dolores duo est magna sed. Eos gubergren elitr no ipsum kasd sadipscing duo lorem." .text.color(context.accentColor).make().p16(),  
+                 ],         
                   ).py64(),
                 ),
               )

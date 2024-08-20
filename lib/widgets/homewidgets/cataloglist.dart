@@ -42,23 +42,23 @@ class CatalogItem extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            catalog.name.text.lg.color(MyTheme.darkbluishColor).bold.make(),
-            catalog.desc.text.textStyle(context.captionStyle).color(MyTheme.darkbluishColor).make(),
+            catalog.name.text.lg.color(context.accentColor).bold.make(),
+            catalog.desc.text.textStyle(context.captionStyle).color(Theme.of(context).colorScheme.secondary).make(),
             8.heightBox,
             OverflowBar(
               alignment: MainAxisAlignment.spaceBetween,
               spacing: 8.0,
               children: [
-                "\$${catalog.price}".text.bold.xl.color(MyTheme.darkbluishColor).make(),
+                "\$${catalog.price}".text.bold.xl.color(Theme.of(context).colorScheme.primary).make(),
                 Padding(
                   padding: EdgeInsets.zero,
                   child: ElevatedButton(
                     onPressed: (){},
                     style: ButtonStyle(
-                      backgroundColor: WidgetStatePropertyAll(MyTheme.darkbluishColor),
+                      backgroundColor: WidgetStatePropertyAll(Theme.of(context).colorScheme.primary),
                       shape: WidgetStatePropertyAll(StadiumBorder()),
                       ),
-                     child: "Buy".text.white.make(),
+                     child: "Add to Cart".text.white.make(),
                      ),
                 )
               ],
@@ -67,6 +67,6 @@ class CatalogItem extends StatelessWidget {
         )),
       ],
     ),
-    ).white.rounded.square(150).make().py16();
+    ).color(context.cardColor).rounded.square(150).make().py16();
   }
 }

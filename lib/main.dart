@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_application_1/pages/Homepage.dart';
 import 'package:flutter_application_1/pages/Loginpage.dart';
+import 'package:flutter_application_1/pages/cartpage.dart';
 import 'package:flutter_application_1/utils/routes.dart';
 import 'package:flutter_application_1/widgets/theme.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -31,7 +32,7 @@ class myapp extends StatelessWidget {
 
     return MaterialApp(
       //home: HomePage(),
-      themeMode: ThemeMode.light, //.dark for dark theme
+      themeMode: ThemeMode.system, //.light for light theme,.dark for dark theme
       theme: MyTheme.lightTheme(context),
       darkTheme: MyTheme.darkTheme(context),
       debugShowCheckedModeBanner: false,
@@ -40,6 +41,7 @@ class myapp extends StatelessWidget {
             '/':(context)=>Loginpage(),
             MyRoutes.homeRoute:(context)=>HomePage(),
             MyRoutes.loginRoute:(context)=>Loginpage(),
+            MyRoutes.CartpageRoute:(context)=>Cartpage(),
         },
       );
   }
