@@ -6,6 +6,7 @@ import 'package:flutter_application_1/models/cart.dart';
 import 'dart:convert';
 import 'package:flutter_application_1/models/catalog.dart';
 import 'package:flutter_application_1/utils/routes.dart';
+import 'package:flutter_application_1/widgets/drawer.dart';
 import 'package:flutter_application_1/widgets/homewidgets/catalogheader.dart';
 import 'package:flutter_application_1/widgets/homewidgets/cataloglist.dart';
 import 'package:velocity_x/velocity_x.dart';
@@ -56,6 +57,10 @@ class _HomePageState extends State<HomePage> {
         ).badge(color:  Vx.red500, size: 22, count: _cart.items.length, textStyle: TextStyle(color: Colors.black,fontWeight: FontWeight.bold)),
         
       ),
+      appBar: AppBar(
+        title: ("Welcome To The App!".text.color(context.theme.colorScheme.secondary).make()),
+        backgroundColor: context.cardColor,
+      ),
         body: SafeArea(
           child: Container(
             padding: Vx.m32,
@@ -72,6 +77,7 @@ class _HomePageState extends State<HomePage> {
             ),
           ),
         ),
+        drawer: MyDrawer(),
         );
   }
 }

@@ -8,7 +8,7 @@ class MyDrawer extends StatelessWidget {
     final imageURL="https://i.pinimg.com/564x/9d/98/56/9d9856055b44d55ace9c10e1ebb09ec1.jpg";
     return Drawer(
       child: Container(
-        color: Colors.deepPurple,
+        color: Theme.of(context).colorScheme.primary,
         child: ListView(
           children: [
             DrawerHeader(
