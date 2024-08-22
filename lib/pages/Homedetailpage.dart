@@ -22,17 +22,17 @@ class Homedetailpage extends StatelessWidget {
       backgroundColor: context.canvasColor,
       bottomNavigationBar: Container(
         color: context.cardColor,
-        child: OverflowBar(
-                alignment: MainAxisAlignment.spaceBetween,
-                spacing: 8.0,
-                children: [
-                  "\$${catalog.price}".text.bold.xl4.red800.color(Theme.of(context).colorScheme.primary).make(),
-                  Addtocart(catalog: catalog).wh(120,50),
-                  Padding(
-                    padding: EdgeInsets.zero,
-                  )
-                ],
-              ).p32(),
+        child: Padding(
+          padding: EdgeInsets.zero,
+          child: OverflowBar(
+                  alignment: MainAxisAlignment.spaceBetween,
+                  spacing: 8.0,
+                  children: [
+                    "\$${catalog.price}".text.bold.xl4.color(Theme.of(context).colorScheme.primary).make(),
+                    Addtocart(catalog: catalog).wh(120,50),
+                  ],
+                ).p32(),
+        ),
       ),
         body: SafeArea(
           bottom: false,
