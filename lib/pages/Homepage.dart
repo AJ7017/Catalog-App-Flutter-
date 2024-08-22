@@ -9,7 +9,7 @@ import 'package:flutter_application_1/utils/routes.dart';
 import 'package:flutter_application_1/widgets/homewidgets/catalogheader.dart';
 import 'package:flutter_application_1/widgets/homewidgets/cataloglist.dart';
 import 'package:velocity_x/velocity_x.dart';
-import 'package:http/http.dart' as http;
+//import 'package:http/http.dart' as http;
 
 
 class HomePage extends StatefulWidget {

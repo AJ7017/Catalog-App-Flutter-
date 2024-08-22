@@ -27,7 +27,7 @@ class Homedetailpage extends StatelessWidget {
                 spacing: 8.0,
                 children: [
                   "\$${catalog.price}".text.bold.xl4.red800.color(Theme.of(context).colorScheme.primary).make(),
-                  Addtocart(catalog: catalog),
+                  Addtocart(catalog: catalog).wh(120,50),
                   Padding(
                     padding: EdgeInsets.zero,
                   )
